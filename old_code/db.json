@@ -1,0 +1,21 @@
+{
+  "Parking_Citations": [
+    {
+	"Ticket number": 1234567890,
+	"Issue time": "700",
+	"RP State Plate": "CA",
+	"Plate Expiry Date": "20180506",
+	"Body Style": "TR",
+	"Color": "BK",
+	"Location": "4TH/STATE",
+	"Route": "CM96",
+	"Agency": 1,
+	"Violation code":208,
+	"Violation Description":204,
+	"Fine amount":93,
+	"Latitude":99999,
+	"Longitude":99999
+    }
+    
+  ]
+}
