@@ -2,7 +2,5 @@
   "file_url_download": "https://s3-us-west-2.amazonaws.com/pcadsassessment/parking_citations.corrupted.csv",
   "file_name": "parking_citations.corrupted.csv",
   "data_store_location": "data/",
-  "model_location": "model/",
-  "model_save_name": "model",
   "model_to_load": ""
 }

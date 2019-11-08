@@ -1,5 +1,4 @@
-import os
-import sys
+from datetime import datetime
 import pandas as pd
 import numpy as np
 from config.Json_read import JsonObj
@@ -18,9 +17,10 @@ class Traffic_Citations_data_cleaning:
         self.file_name = obj.get_config_obj('file_name')
         self.data_store_location = obj.get_config_obj('data_store_location')
         self.le = LabelEncoder()
+        self.date=str(datetime.date(datetime.now()))
 
     def read_data(self):
-        df_parking_citations = pd.read_csv(self.data_store_location+self.file_name,header=True,encoding='utf-8')
+        df_parking_citations = pd.read_csv(self.data_store_location+self.file_name,header='infer',encoding='utf-8')
         return df_parking_citations
 
     def dataframe_nullValues_removal_logic(self,dataframe,subset,columns):
@@ -63,7 +63,7 @@ class Traffic_Citations_data_cleaning:
     def train_model(self,X_train,y_train,X_train_test,y_train_test):
         knn = KNeighborsClassifier(n_neighbors=100)
         knn.fit(X_train, y_train)
-        pickle.dump(knn,open('model/model.pkl','wb'))
+        pickle.dump(knn,open('model/model'+self.date+'.pkl','wb'))
         kfold = KFold(n_splits=5, random_state=None)
         cv_scores = cross_val_score(knn, X_train_test, y_train_test, cv=kfold)
-        return print(cv_scores)
+        return cv_scores
